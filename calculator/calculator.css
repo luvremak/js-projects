@@ -1,0 +1,92 @@
+body {
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 300;
+}
+
+#calculator {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    width: 260px; /* Increased width for a wider calculator */
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 300;
+}
+
+#expression {
+    width: 100%;
+    height: 40px;
+    font-size: 24px;
+    text-align: right;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #555;
+    color: white;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 300;
+}
+
+#buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 300;
+}
+
+button {
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 18px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 300;
+}
+
+button:hover {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.51);
+}
+
+button:active {
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+}
+
+/* Styles for operator buttons */
+.operator {
+    background-color: #edaab4; /* Pink for operators */
+}
+
+/* Styles for number buttons */
+button:not(.operator):not(.clear):not(.equals) {
+    background-color: #595959; /* Dark gray for number buttons */
+}
+
+/* Styles for equals button */
+.equals {
+    background-color: #d1838e; /* Blue for equals button */
+}
+
+/* Lighter gray for clear button */
+.clear {
+    background-color: #888;
+    grid-column: span 4; /* Make the clear button span the whole row */
+}
+
+/* Ensure display area does not overflow the width of buttons */
+#expression {
+    width: calc(100% - 20px);
+    margin-bottom: 15px;
+}
