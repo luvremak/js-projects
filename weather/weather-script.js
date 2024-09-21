@@ -2,7 +2,8 @@ document.getElementById('search').addEventListener('click', getWeather);
 
 function getWeather() {
     const cityInput = document.getElementById('city').value.trim().toLowerCase();
-    let city = cityInput.value
+    let city = cityInput;
+
     if (!city) {
         alert('Please enter a city');
         return;
@@ -10,60 +11,54 @@ function getWeather() {
 
     const apiKey = "57b5bcdf7f5c114da23858e22959e418";
     const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
-    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast/?q=${city}&appid=${apiKey}`;
-    
-    /* async function getWeatherInfo() {
-        const currentWeatherInfo = await fetch(currentWeatherUrl + `&appid=${apiKey}`);
-        let data = await weatherInfo.json();
-        console.log(info);
-    } */
+    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
 
     fetch(currentWeatherUrl)
-    .then(response.json())
-    .then(data => {
-        displayWeather(data);
-    })
-    .catch(error => {
-        console.error('Error fetching currect weather information.', error);
-        alert('Error fetching current weather information. Please try again.');
-    });
+        .then(response => response.json()) 
+        .then(data => {
+            displayWeather(data);
+        })
+        .catch(error => {
+            console.error('Error fetching current weather information.', error);
+            alert('Error fetching current weather information. Please try again.');
+        });
 
     fetch(forecastUrl)
-    .then(response.json())
-    .then(data => {
-        displayForecast(data);
-    })
-    .catch(error => {
-        console.error('Error fetching forecast information.', error);
-        alert('Error fetching forecast information. Please try again.');
-    });
+        .then(response => response.json()) 
+        .then(data => {
+            displayForecast(data);
+        })
+        .catch(error => {
+            console.error('Error fetching forecast information.', error);
+            alert('Error fetching forecast information. Please try again.');
+        });
 }
 
 function displayWeather(data) {
     const weatherDiv = document.getElementById('weatherInfo');
-    const temperature = data.main.temp;
+    const temperature = Math.round(data.main.temp - 273.15); 
     const description = data.weather[0].description;
-        weatherDiv.innerHTML = `
-    <h2>Weather for ${data.name}</h2>
-    <p>Temperature: ${temperature}°C</p>
-    <p>Conditions: ${description}</p>
+
+    weatherDiv.innerHTML = `
+        <h2>Weather for ${data.name}</h2>
+        <p>Temperature: ${temperature}°C</p>
+        <p>Conditions: ${description}</p>
     `;
 }
 
 function displayForecast(data) {
     const forecastDiv = document.getElementById('forecastInfo');
+    forecastDiv.innerHTML = ''; 
+
     data.list.forEach((forecast, index) => {
         if (index % 8 === 0) { 
             const date = new Date(forecast.dt_txt);
-            const temperature = Math.round(forecast.main.temp - 273.15);
+            const temperature = forecast.main.temp;
             const description = forecast.weather[0].description;
+
+            forecastDiv.innerHTML += `
+                <p><strong>${date.toLocaleDateString()}</strong>: ${temperature}°C, ${description}</p>
+            `;
         }
-    }
-)}
-
-
-
-getWeather()
-
-
-
+    });
+}
