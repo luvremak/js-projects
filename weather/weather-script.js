@@ -43,6 +43,11 @@ function displayWeather(data) {
     const weatherDiv = document.getElementById('weatherInfo');
     const temperature = data.main.temp;
     const description = data.weather[0].description;
+        weatherDiv.innerHTML = `
+    <h2>Weather for ${data.name}</h2>
+    <p>Temperature: ${temperature}°C</p>
+    <p>Conditions: ${description}</p>
+    `;
 }
 
 function displayForecast(data) {
