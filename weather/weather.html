@@ -15,7 +15,11 @@
         <h1>Weather App</h1>
         <input type="text" id="city" placeholder="Enter city">
         <button id="search" class="btn" onclick="getWeather()"">Get Weather</button>
-        <div id="weather-info"></div>
+        <div id="weather-info">
+            <h2>Weather for ${data.name}</h2>
+            <p>Temperature: ${temperature}°C</p>
+            <p>Conditions: ${description}</p>
+        </div>
     </div>
     <script src="weather-script.js"></script>
 </body>
