@@ -35,7 +35,7 @@ function getWeather() {
 }
 
 function displayWeather(data) {
-    const weatherDiv = document.getElementById('weatherInfo');
+    const weatherDiv = document.getElementById('weather-info');
     const temperature = Math.round(data.main.temp - 273.15); 
     const description = data.weather[0].description;
 
@@ -47,7 +47,7 @@ function displayWeather(data) {
 }
 
 function displayForecast(data) {
-    const forecastDiv = document.getElementById('forecastInfo');
+    const forecastDiv = document.getElementById('forecast-info');
     forecastDiv.innerHTML = ''; 
 
     data.list.forEach((forecast, index) => {
