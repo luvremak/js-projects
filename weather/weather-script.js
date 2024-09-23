@@ -24,7 +24,7 @@ function getWeather() {
         });
 
     fetch(forecastUrl)
-        .then(response => response.json()) 
+        .then(response => response.json())
         .then(data => {
             displayForecast(data);
         })
@@ -36,7 +36,7 @@ function getWeather() {
 
 function displayWeather(data) {
     const weatherDiv = document.getElementById('weather-info');
-    const temperature = Math.round(data.main.temp - 273.15); 
+    const temperature = Math.round(data.main.temp); 
     const description = data.weather[0].description;
 
     weatherDiv.innerHTML = `
@@ -62,3 +62,6 @@ function displayForecast(data) {
         }
     });
 }
+
+
+
