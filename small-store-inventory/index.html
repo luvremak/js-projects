@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <link rel="stylesheet" href="stylesbychat.css">
+</head>
+<body>
+    <h1>Inventory</h1>
+
+    <h2>Add Item</h2>
+    <form id="addItemForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required><br><br>
+        <label for="price">Price:</label>
+        <input type="number" id="price" step="0.01" required><br><br>
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" required><br><br>
+        <button type="submit">Add Item</button>
+    </form>
+
+    <h2>Change Item</h2>
+    <form id="updateItemForm">
+    <label for="updateItem">Enter Item Name to Update:</label>
+    <input type="text" id="updateItem" required><br><br>
+    <button type="submit" onclick="changeItem()">Change Item</button>
+    </form>
+
+    <div id="editItem" style="display: none;">
+        <h3>Edit Item</h3>
+        <label for="newName">Name:</label>
+        <input type="text" id="newName"><br><br>
+        <label for="newPrice">Price:</label>
+        <input type="number" id="newPrice" step="0.01"><br><br>
+        <label for="newQuantity">Quantity:</label>
+        <input type="number" id="newQuantity"><br><br>
+        <button id="saveChanges">Save Changes</button>
+    </div>
+
+    <h2>Delete Item</h2>
+    <form id="deleteItemForm">
+        <label for="deleteItem">Name:</label>
+        <input type="text" id="deleteItem" required><br><br>
+        <button type="submit" onclick="deleteItem()">Delete Item</button>
+    </form>
+
+    <h2>Current Inventory</h2>
+    <table class="inventory-list" id="inventoryTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script src="script.js"></script>
+</body>
+</html>
