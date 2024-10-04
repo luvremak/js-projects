@@ -1,0 +1,138 @@
+body {
+    background-color: #252729;
+    color: #fff;
+    font-family: "Raleway", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 500px;
+    background: linear-gradient(145deg, #3c3e43, #50575f); 
+    padding: 20px; 
+    border-radius: 16px; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1); 
+    margin: 20px; 
+}
+
+h1, h2 {
+    color: inherit;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; 
+    margin-bottom: 16px;
+}
+
+label {
+    font-size: 14px; 
+    font-weight: 500;
+    color: #b0b3b8;
+    margin-bottom: 4px; 
+}
+
+input[type="text"], input[type="number"] {
+    padding: 10px 12px;
+    border: none;
+    border-radius: 12px;
+    background: #3c3e43;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+    box-shadow: inset 0 8px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="text"]:hover, input[type="number"]:hover {
+    background: linear-gradient(145deg, #50575f, #3c3e43);
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+    background: linear-gradient(145deg, #3c3e43, #50575f);
+    border: none;
+    outline: none;
+    box-shadow: 0 0 8px rgba(113, 184, 255, 0.5);
+    transform: translateY(-1px);
+}
+
+.button {
+    width: 100%;
+    margin-top: 12px;
+    padding: 12px;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #fff;
+    background: linear-gradient(145deg, #50575f, #3c3e43);
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1), 0 3px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: linear-gradient(145deg, #1f75ff, #1c63d9);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.button:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+#inventoryTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 12px;
+    border-radius: 16px; 
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 3px 8px rgba(0, 0, 0, 0.1); 
+}
+
+#inventoryTable th, #inventoryTable td {
+    padding: 12px; 
+    text-align: left;
+    border-bottom: 1px solid #575b63;
+}
+
+#inventoryTable th {
+    background-color: #1f75ff;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+#inventoryTable td {
+    background: linear-gradient(145deg, #3c3e43, #50575f); 
+    color: #fff;
+}
+
+#inventoryTable tr:last-child td {
+    border-bottom: none;
+}
+
+#inventoryTable tbody tr:hover {
+    background-color: #454c54;
+}
+
+#inventoryTable th:first-child, #inventoryTable td:first-child {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+#inventoryTable th:last-child, #inventoryTable td:last-child {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
