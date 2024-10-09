@@ -1,4 +1,9 @@
 document.getElementById('search').addEventListener('click', getWeather);
+document.getElementById('city').addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+        getWeather();
+    }
+});
 
 function getWeather() {
     const cityInput = document.getElementById('city').value.trim().toLowerCase();
@@ -11,7 +16,7 @@ function getWeather() {
 
     const apiKey = "57b5bcdf7f5c114da23858e22959e418";
     const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=${apiKey}`;
-    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?units=metric&q=${city}&appid=${apiKey}`;
+    //const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?units=metric&q=${city}&appid=${apiKey}`;
 
     fetch(currentWeatherUrl)
         .then(response => response.json()) 
@@ -23,7 +28,7 @@ function getWeather() {
             alert('Error fetching current weather information. Please try again.');
         });
 
-    fetch(forecastUrl)
+    /*fetch(forecastUrl)
         .then(response => response.json())
         .then(data => {
             displayForecast(data);
@@ -31,7 +36,7 @@ function getWeather() {
         .catch(error => {
             console.error('Error fetching forecast information.', error);
             alert('Error fetching forecast information. Please try again.');
-        });
+        });*/
 }
 
 function displayWeather(data) {
@@ -46,7 +51,7 @@ function displayWeather(data) {
     `;
 }
 
-function displayForecast(data) {
+/*function displayForecast(data) {
     const forecastDiv = document.getElementById('forecast-info');
     forecastDiv.innerHTML = ''; 
 
@@ -61,7 +66,7 @@ function displayForecast(data) {
             `;
         }
     });
-}
+}*/
 
 
 
