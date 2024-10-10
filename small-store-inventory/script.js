@@ -1,24 +1,12 @@
-//THE DELETE FUNCTION DOES NOT WORK PROPERLY
-
 let inventory = [];
 
-
-/*    { name: "ketchup", price: 38.80, quantity: 12 },
+/*    let inventory = [{ name: "ketchup", price: 38.80, quantity: 12 },
     { name: "mustard", price: 12.70, quantity: 31 },
-    { name: "mayo", price: 48.90, quantity: 20 } */
-     
+    { name: "mayo", price: 48.90, quantity: 20 }]; */
+
+loadInvStorage();     
 displayInventory(inventory);
 addItem();
-/*
-Algorithm:
-1. get element by id
-2. add event listener
-3. get values by id
-4. create an object
-5. asign values to keys
-6. push the new item
-7. clear the form
-*/
 
 function addItem() {
     const addItemForm = document.getElementById('addItemForm');
@@ -42,16 +30,6 @@ function addItem() {
     addItemForm.reset(); 
     });
 } 
-
-/*
-Algorithm:
-1. get inventory
-2. identify the item to change
-3. get new value
-4. update inventory
-5. save changes
-6. display new inventory
-*/
 
 function changeItem() {
     document.getElementById('updateItemForm').addEventListener('submit', function(event) {
@@ -85,7 +63,7 @@ function changeItem() {
 
 }
 
-
+document.getElementById('deleteButton').addEventListener('click', deleteItem());
 function deleteItem() {
     const itemName = document.getElementById('deleteItem').value;
     const itemIndex = inventory.findIndex(item => item.name.toLowerCase() === itemName.toLowerCase());
@@ -93,9 +71,10 @@ function deleteItem() {
         alert("Item not found.");
         return;
     } else {
-        inventory.splice(itemIndex); 
+        inventory.splice(itemIndex, 1); 
         displayInventory(inventory);  
         saveInventoryToLocalStorage(inventory);
+        displayInventory();
     }
 }
 
@@ -119,11 +98,18 @@ function displayInventory(){
     });
 }
 
-
-
 function saveInventoryToLocalStorage(inventory) {
     localStorage.setItem('inventory', JSON.stringify(inventory));
 }
-saveInventoryToLocalStorage(inventory);
 
+function loadInvStorage() {
+    const storedInventory = localStorage.getItem('inventory');
+    if (storedInventory) {
+        inventory = JSON.parse(storedInventory);
+    }
+}
+
+saveInventoryToLocalStorage(inventory);
+displayInventory();
 console.log(inventory);
+
