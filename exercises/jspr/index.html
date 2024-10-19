@@ -4,19 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: auto;
+            min-height: 100vh; 
+            margin: 0;
+            flex-direction: column;
+            background-color: #f4f4f4;
+            padding: 20px; 
+        }
+
+        .ex91, .ex92, .ex93, .ex94, .ex95, .ex96 {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        .ex96 h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .ex96 p {
+            text-align: left;
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input[type="text"], input[type="email"], input[type="submit"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+
+    </style>
 </head>
 <body>
     <script src="ex9.js"></script>
 
-    <button>change color</button>
+    <div class="ex91">
+        <button id="changeColor">change bg color</button>
+    </div>
 
-    <form>name:</form>
-    <form>email:</form>
+    <div class="ex92">
+        <form>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" required><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" required><br><br>
+            <button type="button" onclick="displayInfo()">Submit</button>
+        </form>
+        <div id="infoDiv"></div>
+    </div>
 
-    <button>show paragraph</button>
-
-    <button>click me</button>
+    <div class="ex93">
+        <button onclick="" id="toggle">show paragraph</button>
+        <p id="text"></p>
+    </div>
     
-    <button>hover on me</button>
+    <div class="ex94">
+        <p>key's pressed: </p>
+    </div>
+
+    <div class="ex95">
+        <button>click me</button>
+    </div>
+
+    <div class="ex96">
+        <h2>hover on me!</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum tellus in massa scelerisque viverra. Quisque ac diam pretium nulla tempus volutpat blandit et dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum at dapibus orci. Cras fringilla, mi ut cursus facilisis, turpis orci molestie arcu, eget iaculis nulla nulla at dolor. Donec id iaculis diam.</p>
+    </div>
+
 </body>
 </html>
